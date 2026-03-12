@@ -22,20 +22,29 @@ namespace ContestManager.Data
 
 
             modelBuilder.Entity<User>().HasData(
-              new User { Id = 1, Username = "TestUser", Role = "Normal" }
+              new User { Id = 1, Username = "TestUser", Role = "Normal" },
+              new User { Id = 2, Username = "VipUser", Role = "VIP" } 
           );
 
 
             modelBuilder.Entity<Contest>().HasData(
-                new Contest
-                {
-                    Id = 101,
-                    Name = "Sample Math Contest",
-                    AccessLevel = "Normal",
-                    StartTime = DateTime.UtcNow,
-                    EndTime = DateTime.UtcNow.AddDays(1)
-                }
-            );
+            new Contest
+            {
+                Id = 101,
+                Name = "Sample Math Contest",
+                AccessLevel = "Normal",
+                StartTime = DateTime.UtcNow,
+                EndTime = DateTime.UtcNow.AddDays(1)
+            },
+            new Contest
+            {
+                Id = 102,
+                Name = "Exclusive VIP Challenge",
+                AccessLevel = "VIP", 
+                StartTime = DateTime.UtcNow,
+                EndTime = DateTime.UtcNow.AddDays(1)
+            }
+        );
 
 
             modelBuilder.Entity<Question>().HasData(
