@@ -1,0 +1,164 @@
+{
+  "info": {
+    "_postman_id": "26278eac-9732-4631-96f4-a1f91f2bac2d",
+    "name": "My Collection",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53149558",
+    "_collection_link": "https://go.postman.co/collection/53149558-26278eac-9732-4631-96f4-a1f91f2bac2d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "postman-echo.com/post",
+          "host": [
+            "postman-echo",
+            "com"
+          ],
+          "path": [
+            "post"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Get Contest",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Submit",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJUZXN0VXNlciIsInJvbGUiOiJOb3JtYWwiLCJuYmYiOjE3NzMzMjc5ODUsImV4cCI6MTc3MzMzNTE4NSwiaWF0IjoxNzczMzI3OTg1LCJpc3MiOiJDb250ZXN0QVBJIiwiYXVkIjoiQ29udGVzdFVzZXJzIn0.bhzKbsyjAr_HQp0chSjZwxwUAGpPOnjfW_05zU0QbG8",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"userId\": 1,\r\n  \"contestId\": 101,\r\n  \"answers\": [\r\n    {\r\n      \"questionId\": 1,\r\n      \"selectedOptionIds\": [ 3 ] \r\n    },\r\n    {\r\n      \"questionId\": 2,\r\n      \"selectedOptionIds\": [ 7, 8 ] \r\n    },\r\n    {\r\n      \"questionId\": 3,\r\n      \"selectedOptionIds\": [ 11 ] \r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7138/api/Scoring/submit",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7138",
+          "path": [
+            "api",
+            "Scoring",
+            "submit"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Leadrboard",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJUZXN0VXNlciIsInJvbGUiOiJOb3JtYWwiLCJuYmYiOjE3NzMzMjc5ODUsImV4cCI6MTc3MzMzNTE4NSwiaWF0IjoxNzczMzI3OTg1LCJpc3MiOiJDb250ZXN0QVBJIiwiYXVkIjoiQ29udGVzdFVzZXJzIn0.bhzKbsyjAr_HQp0chSjZwxwUAGpPOnjfW_05zU0QbG8",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7138/api/Leaderboard/101",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7138",
+          "path": [
+            "api",
+            "Leaderboard",
+            "101"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get History",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJUZXN0VXNlciIsInJvbGUiOiJOb3JtYWwiLCJuYmYiOjE3NzMzMjc5ODUsImV4cCI6MTc3MzMzNTE4NSwiaWF0IjoxNzczMzI3OTg1LCJpc3MiOiJDb250ZXN0QVBJIiwiYXVkIjoiQ29udGVzdFVzZXJzIn0.bhzKbsyjAr_HQp0chSjZwxwUAGpPOnjfW_05zU0QbG8",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7138/api/History/1",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7138",
+          "path": [
+            "api",
+            "History",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
