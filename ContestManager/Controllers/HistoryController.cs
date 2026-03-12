@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using ContestManager.Data;
+﻿using ContestManager.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace ContestManager.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class HistoryController : Controller

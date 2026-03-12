@@ -1,11 +1,13 @@
 ﻿using ContestManager.Data;
 using ContestManager.Dto_s;
 using ContestManager.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContestManager.Controllers
 {
+    [Authorize(Roles = "Normal,VIP,Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class ScoringController : Controller
